@@ -1,0 +1,132 @@
+.block-19 {
+	// .block-19__container
+	&__container {
+	}
+	// .block-19__body
+	&__body {
+		display: grid;
+		grid-template-columns: repeat(2, 1fr);
+		grid-gap: rem(64) rem(24);
+		@media (max-width: em($md2)) {
+			grid-template-columns: repeat(1, 1fr);
+		}
+	}
+	// .block-19__column
+	&__column {
+		// .block-19__column_left
+		&_left {
+			@media (max-width: em($md2)) {
+				display: none;
+			}
+		}
+		// .block-19__column_right
+		&_right {
+		}
+	}
+	// .block-19__main
+	&__main {
+		padding: rem(40) rem(30);
+		height: 100%;
+		border: rem(1) solid var(--color-main);
+		border-radius: rem(25);
+	}
+	// .block-19__title
+	&__title {
+	}
+	// .block-19__footer
+	&__footer {
+		position: relative;
+	}
+	// .block-19__image
+	&__image {
+		position: absolute;
+		top: 0;
+		right: rem(-15);
+		@include adaptiv-value(width, 1170, 500, 1);
+	}
+	// .block-19__content
+	&__content {
+		display: grid;
+		grid-gap: rem(32);
+		@media (max-width: em($md3)) {
+			grid-gap: rem(24);
+		}
+	}
+	// .block-19__item
+	&__item {
+	}
+}
+//---------------------------------------------------------------
+.block-19-item {
+	border-radius: rem(25);
+	background: var(--color-main);
+	color: #fff;
+	padding: rem(32);
+	display: grid;
+	grid-gap: rem(12);
+	@media (max-width: em($md3)) {
+		padding: rem(16);
+		border-radius: rem(25);
+	}
+	// .block-19-item__image
+	&__image {
+	}
+	// .block-19-item__title
+	&__title {
+		color: #fff;
+	}
+	// .block-19-item__text
+	&__text {
+	}
+}
+
+//===============================================================
+.block-20 {
+	min-width: 0;
+	// .block-20__container
+	&__container {
+	}
+	// .block-20__title
+	&__title {
+	}
+	// .block-20__body
+	&__body {
+		display: grid;
+		grid-template-columns: repeat(4, 1fr);
+		grid-gap: rem(60) rem(24);
+		@media (max-width: em($md2)) {
+			grid-template-columns: repeat(3, 1fr);
+		}
+		@media (max-width: em($md3)) {
+			overflow-y: scroll;
+			grid-template-columns: unset;
+			grid-auto-flow: column;
+		}
+	}
+	// .block-20__item
+	&__item {
+	}
+}
+//---------------------------------------------------------------
+.block-20-item {
+	@media (max-width: em($md3)) {
+		min-width: rem(248);
+	}
+	// .block-20-item__image
+	&__image {
+		text-align: center;
+		margin: 0px 0px rem(24) 0px;
+	}
+	// .block-20-item__content
+	&__content {
+	}
+	// .block-20-item__title
+	&__title {
+		margin: 0px 0px rem(18) 0px;
+	}
+	// .block-20-item__text
+	&__text {
+	}
+}
+
+//===============================================================

@@ -1,0 +1,142 @@
+.footer {
+	margin: rem(160) 0px 0px 0px;
+	padding: rem(58) 0px;
+	background: var(--color-font);
+	color: #fff;
+	// .footer__container
+	&__container {
+	}
+	// .footer__body
+	&__body {
+		display: flex;
+		justify-content: space-between;
+		gap: rem(28) rem(20);
+		@media (max-width: em($md1)) {
+			flex-direction: column;
+		}
+	}
+	// .footer__column
+	&__column {
+		// .footer__column_main
+		&_main {
+		}
+		// .footer__column_menu
+		&_menu {
+		}
+	}
+	// .footer__logo
+	&__logo {
+		display: inline-flex;
+		width: rem(291);
+		margin: 0px 0px rem(12) 0px;
+		.logo {
+			&::before {
+				filter: brightness(999);
+			}
+		}
+	}
+	// .footer__label
+	&__label {
+		margin: 0px 0px rem(20) 0px;
+		font-size: rem(14);
+		font-weight: 400;
+	}
+
+	// .footer_white
+	&_white {
+		border-top: none;
+		position: relative;
+		&::before {
+			content: '';
+			position: absolute;
+			left: 0;
+			top: rem(-160);
+			width: 100%;
+			height: rem(160);
+			background: #fff;
+			@media (max-width: em($md3)) {
+				top: rem(-60);
+				height: rem(60);
+			}
+		}
+	}
+}
+//---------------------------------------------------------------
+.socials {
+	display: flex;
+	flex-wrap: wrap;
+	gap: rem(16);
+	// .socials__social
+	&__social {
+	}
+	// .socials__link
+	&__link {
+		width: rem(51);
+		height: rem(51);
+		background: #fff;
+		color: var(--color-font);
+		border-radius: 50%;
+		display: inline-flex;
+		justify-content: center;
+		align-items: center;
+
+		@media (any-hover: hover) {
+			&:hover {
+				background: var(--color-main);
+				color: #fff !important;
+			}
+		}
+		
+		&._icon-icon1 {
+			font-size: rem(18);
+		}
+		&._icon-icon2 {
+			font-size: rem(24);
+			
+		}
+		&._icon-icon3 {
+			font-size: rem(24);
+		}
+	}
+}
+//---------------------------------------------------------------
+.footer-menu {
+	display: grid;
+	gap: rem(52);
+	grid-template-columns: repeat(4, 1fr);
+	@media (max-width: em($md2)) {
+		gap: rem(26) rem(16);
+		grid-template-columns: repeat(2, 1fr);
+	}
+	@media (max-width: em(390)) {
+		grid-template-columns: repeat(1, 1fr);
+	}
+	// .footer-menu__column
+	&__column {
+	}
+	// .footer-menu__title
+	&__title {
+		font-size: rem(20);
+		color: #fff;
+		margin: 0px 0px rem(16) 0px;
+		text-decoration: underline;
+	}
+	// .footer-menu__list
+	&__list {
+		display: flex;
+		flex-direction: column;
+		gap: rem(5);
+	}
+	// .footer-menu__item
+	&__item {
+	}
+	// .footer-menu__link
+	&__link {
+		color: #fff !important;
+		@media (any-hover: hover) {
+			&:hover {
+				color: var(--color-main) !important;
+			}
+		}
+	}
+}

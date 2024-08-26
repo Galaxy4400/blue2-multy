@@ -1,0 +1,281 @@
+:root {
+	--color-error:		#b81111;
+	--color-warning:	#ffc107;
+	--color-success:	#198754;
+	--color-focus:		#26B9FF;
+
+	--color-main-light: #1896a1;
+	--color-main: #016670;
+	--color-main-dark: #00353a;
+
+	--color-second-light: #FFF9C7;
+	--color-second: #FFF9C7;
+	--color-second-dark: #dacd52;
+
+	--color-body-background: #ffffff;
+	--color-border: #242424;
+	
+	--color-font: #242424;
+	--color-font-dark: #242424;
+
+	--color-link: #242424;
+	--color-link-hover: #1896a1;
+
+	--color-titles: #242424;
+}
+
+//===============================================================
+
+// Стилизация скроллбаров
+@media (any-hover: hover) {
+	::-webkit-scrollbar {
+		width: px(10);
+		height: px(10);
+	}
+
+	::-webkit-scrollbar-track {
+		background: var(--color-body-background);
+		box-shadow: 0 0 px(2) rgba(0, 0, 0, .2) inset;
+	}
+
+	::-webkit-scrollbar-thumb {
+		background: var(--color-main);
+		border-radius: px(5);
+		border: px(2) solid var(--color-body-background);
+		&:hover {
+			background: var(--color-main-light);
+		}
+	}
+}
+
+//===============================================================
+
+html {
+	scrollbar-gutter: stable;
+}
+
+body {
+	color: var(--color-font);
+	background: var(--color-body-background);
+	@include adaptiv-value(font-size, 18, 16, 1);
+	font-size: rem(16);
+	line-height: 150%;
+	letter-spacing: rem(0.32);
+	&._lock {
+		overflow: hidden;
+	}
+
+	//---------------------------------------------------------------
+
+	a {
+		transition: all 0.3s ease 0s;
+		color: var(--color-link);
+		@media (any-hover: hover) {
+			&:hover {
+				color: var(--color-link-hover);
+			}
+		}
+	}
+
+	//---------------------------------------------------------------
+
+	.h1,
+	h1 a,
+	h1 {
+		@include adaptiv-value(font-size, 84, 38, 1);
+		font-family: 'Unbounded';
+		color: var(--color-titles);
+		text-transform: uppercase;
+		line-height: 120%;
+	}
+	.h2,
+	h2 a,
+	h2 {
+		@include adaptiv-value(font-size, 52, 30, 1);
+		font-family: 'Unbounded';
+		line-height: 120%;
+		color: var(--color-titles);
+		text-transform: uppercase;
+	}
+	.h3,
+	h3 a,
+	h3 {
+		@include adaptiv-value(font-size, 24, 18, 1);
+		font-weight: 600;
+		line-height: 120%;
+		color: var(--color-titles);
+	}
+	.h4,
+	h4 a,
+	h4 {
+		font-weight: 700;
+		@include adaptiv-value(font-size, 24, 18, 1);
+		line-height: 120%; /* 28.8px */
+		color: var(--color-titles);
+		letter-spacing: rem(0.48);
+	}
+	.h5,
+	h5 a,
+	h5 {
+		font-size: rem(18);
+		line-height: 120%;
+	}
+
+	
+	//---------------------------------------------------------------
+	._special-styles {
+		color: var(--color-font-dark);
+
+		h1, h2, h3, h4, h5, h6 {
+			color: var(--color-font-dark) !important;
+			margin: rem(18) 0px;
+			@media (max-width: em($md3)) {
+				margin: rem(16) 0px;
+			}
+		}
+
+		a {
+			transition: all 0.3s ease 0s;
+			color: var(--color-link);
+			@media (any-hover: hover) {
+				&:hover {
+					color: var(--color-main-dark);
+				}
+			}
+		}
+
+		p {
+			margin: 0px 0px rem(3) 0px;
+		}
+
+		img {
+			margin: rem(32) 0px;
+			@media (max-width: em($md3)) {
+				margin: rem(14) 0px;
+			}
+		}
+
+		figure {
+			display: inline-block;
+			margin: 0px 0px rem(20) 0px;
+			img {
+				border-radius: rem(5);
+			}
+		}
+
+
+		ul {
+			padding: 0px 0px 0px rem(22);
+			margin: rem(24) 0px;
+			@media (max-width: em($md3)) {
+				margin: rem(16) 0px;
+			}
+			li {
+				position: relative;
+				line-height: 132%; /* 26.4px */
+				margin: 0px 0px rem(10) 0px;
+				font-size: 20px;
+				font-weight: 500;
+				& > ul, & > ol {
+					padding-top: rem(10);
+				}
+				&::before {
+					content: '';
+					position: absolute;
+					top: em(9);
+					left: em(-18);
+					width: em(6);
+					height: em(6);
+					background: var(--color-main-dark);
+					border-radius: 50%;
+				}
+			}
+
+			&.small {
+				margin: rem(0) 0px;
+				li {
+					font-size: rem(16);
+					margin: 0px 0px rem(5) 0px;
+					line-height: 150%;
+					&::before {
+						width: em(4);
+						height: em(4);
+					}
+				}
+			}
+		}
+
+		ol {
+			padding: 0px 0px 0px rem(22);
+			margin: 0px 0px rem(15) 0px;
+			li {
+				line-height: 150%;
+				margin: 0px 0px rem(10) 0px;
+				& > ul, & > ol {
+					padding-top: rem(10);
+				}
+			}
+		}
+
+		table {
+			max-width: 100%;
+			border-collapse: collapse;
+			margin: 0px 0px rem(40) 0px;
+			@media (max-width: ($md3+'px')) {
+				margin: 0px 0px rem(20) 0px;
+			}
+			tr{
+				th{
+					font-size: rem(16);
+					font-weight: 400;
+					background: #111111;
+					padding: rem(5) rem(10);
+					border: 1px solid #000000;
+					color: #ffffff;
+				}
+				td {
+					background: #dddddd;
+					border: 1px solid #000000;
+					padding: rem(5) rem(10);
+				}
+			}
+		}
+
+		.table-wrapper {
+			width: 100%;
+			overflow-x: auto;
+		}
+	}
+}
+
+// Оболочка контента сайта. Необходимма, чтобы футер всегда был прижат к низу экрана
+.wrapper {
+	display: grid;
+	grid-template-rows: auto 1fr auto;
+	width: 100%;
+	min-height: 100%;
+	overflow: hidden;
+	&._loaded {
+	}
+}
+
+// Основной блок
+.page {
+	display: grid;
+	grid-gap: rem(160);
+	min-width: 0;
+	@media (max-width: em($md2)) {
+		grid-gap: rem(80);
+	}
+	@media (max-width: em($md3)) {
+		grid-gap: rem(60);
+	}
+	// .page__section
+	&__section {
+		margin: 0px 0px rem(100) 0px;
+	}
+}
+
+
+
+

@@ -1,0 +1,94 @@
+@font-face {
+	font-family: "icons-system";
+	src: url("../fonts/system-icons/icons-system.ttf") format("truetype"), url("../fonts/system-icons/icons-system.woff") format("woff"),
+		url("../fonts/system-icons/icons-system.svg") format("svg");
+	font-weight: normal;
+	font-style: normal;
+	font-display: block;
+}
+
+@font-face {
+	font-family: "icons";
+	src: url("../fonts/icons.ttf") format("truetype"), url("../fonts/icons.woff") format("woff"),
+		url("../fonts/icons.svg") format("svg");
+	font-weight: normal;
+	font-style: normal;
+	font-display: block;
+}
+
+%ic {
+	font-style: normal;
+	font-weight: normal;
+	font-variant: normal;
+	text-transform: none;
+	line-height: 1;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+}
+
+
+[class^="_system-icon"],
+[class*=" _system-icon"] {
+	&:before {
+		font-family: "icons-system";
+		@extend %ic;
+	}
+}
+
+[class^="_icon-"],
+[class*=" _icon-"] {
+	&:before {
+		font-family: "icons";
+		@extend %ic;
+	}
+}
+
+
+
+// Systemic icons
+._system-icon-check-circle:before {
+  content: "\e902";
+}
+._system-icon-close-solid:before {
+  content: "\e903";
+}
+._system-icon-eye-close:before {
+  content: "\e900";
+}
+._system-icon-eye:before {
+  content: "\e901";
+}
+._system-icon-close:before {
+  content: "\e910";
+}
+
+
+
+// Classes of icons
+._icon-plus:before {
+  content: "\e906";
+}
+._icon-arrow-big:before {
+  content: "\e907";
+}
+._icon-arrow-small:before {
+  content: "\e900";
+}
+._icon-arrow:before {
+  content: "\e901";
+}
+._icon-icon1:before {
+  content: "\e902";
+}
+._icon-icon2:before {
+  content: "\e903";
+}
+._icon-icon3:before {
+  content: "\e904";
+}
+._icon-login:before {
+  content: "\e905";
+}
+._icon-arrow-simple:before {
+  content: "\e908";
+}

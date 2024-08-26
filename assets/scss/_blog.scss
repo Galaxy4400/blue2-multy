@@ -1,0 +1,119 @@
+.blog {
+	padding: rem(90) 0px 0px 0px;
+	@media (max-width: em($md3)) {
+		padding: rem(50) 0px 0px 0px;
+	}
+	// .blog__container
+	&__container {
+	}
+	// .blog__body
+	&__body {
+		display: grid;
+		grid-template-columns: repeat(2, 1fr);
+		grid-gap: rem(24);
+		margin: 0px 0px rem(88) 0px;
+		@media (max-width: em($md3)) {
+			grid-template-columns: repeat(1, 1fr);
+			grid-gap: rem(60);
+			margin: 0px 0px rem(60) 0px;
+		}
+	}
+	// .blog__item
+	&__item {
+	}
+	// .blog__footer
+	&__footer {
+	}
+	// .blog__btn
+	&__btn {
+	}
+}
+//---------------------------------------------------------------
+.blog-item {
+	// .blog-item__image
+	&__image {
+		text-align: center;
+		margin: 0px 0px rem(18) 0px;
+		@media (max-width: em($md3)) {
+			margin: 0px 0px rem(14) 0px;
+		}
+	}
+	// .blog-item__content
+	&__content {
+	}
+	// .blog-item__date
+	&__date {
+		margin: 0px 0px rem(12) 0px;
+		@media (max-width: em($md3)) {
+			margin: 0px 0px rem(10) 0px;
+		}
+	}
+	// .blog-item__title
+	&__title {
+		margin: 0px 0px rem(16) 0px;
+	}
+	// .blog-item__text
+	&__text {
+		margin: 0px 0px rem(24) 0px;
+		@media (max-width: em($md3)) {
+			margin: 0px 0px rem(16) 0px;
+		}
+	}
+	// .blog-item__btn
+	&__btn {
+		padding: rem(10) rem(50);
+	}
+}
+
+//===============================================================
+.blog-details {
+	margin: 0px 0px rem(160) 0px;
+	@media (max-width: em($md2)) {
+		margin: 0px 0px rem(100) 0px;
+	}
+	@media (max-width: em($md3)) {
+		margin: 0px 0px rem(50) 0px;
+	}
+	// .blog-details__image
+	&__image {
+		margin: 0px 0px rem(32) 0px;
+		@media (max-width: em($md3)) {
+			margin: 0px 0px rem(14) 0px;
+		}
+	}
+	// .blog-details__info
+	&__info {
+		display: flex;
+		gap: rem(34);
+		margin: 0px 0px rem(24) 0px;
+		@media (max-width: em($md3)) {
+			margin: 0px 0px rem(14) 0px;
+		}
+		@media (max-width: em($md4)) {
+			justify-content: space-between;
+		}
+	}
+	// .blog-details__date
+	&__date {
+	}
+	// .blog-details__author
+	&__author {
+	}
+	// .blog-details__content
+	&__content {
+		margin: 0px 0px rem(18) 0px;
+	}
+	// .blog-details__footer
+	&__footer {
+		display: flex;
+		flex-wrap: wrap;
+		justify-content: space-between;
+		gap: rem(13);
+	}
+	// .blog-details__btn
+	&__btn {
+		@media (min-width: em($md3+1)) {
+			padding: rem(10) rem(80);
+		}
+	}
+}

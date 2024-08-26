@@ -1,0 +1,207 @@
+/**
+ * Sets the limitation of the unit in width
+ */
+._container {
+	max-width: rem($maxWidthContainer);
+	padding: 0px px($containerPadding);
+	margin: 0 auto;
+}
+
+._container-narrow {
+	max-width: rem(930);
+	padding: 0px px($containerPadding);
+	margin: 0 auto;
+}
+
+/**
+ * Attaches the block to the upper edge of the screen
+ */
+._fixed {
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+}
+
+/**
+ * Makes a picture in the block with the background of this block stretching in height and width.Excess cuts
+ */
+._ibg {
+	position: relative;
+	img {
+		position: absolute;
+		width: 100%;
+		height: 100%;
+		top: 0;
+		left: 0;
+		object-fit: cover;
+	}
+}
+
+/**
+ * Sets the unit ratio of the parties 16: 9
+ */
+._video {
+	position: relative;
+	overflow: hidden;
+	height: 0;
+	padding-bottom: 56.25%;
+	video,
+	iframe,
+	object,
+	embed {
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+	}
+}
+
+/**
+ * Adds to the end of the string of the stars
+ */
+._req {
+	&::after {
+		content: '*';
+		color: var(--color-green);
+		margin: 0px 0px 0px rem(3);
+	}
+}
+
+/**
+ * Makes the table adaptive
+ */
+._table-adapt {
+	width: 100%;
+	thead {
+		@media (max-width: em($md3)) {
+			display: none;
+		}
+	}
+	tr {
+		@media (max-width: em($md3)) {
+			display: block;
+			margin: 0px 0px rem(20) 0px;
+			&:nth-child(2n) {
+				background: #fafafa;
+			}
+		}
+	}
+	td {
+		@media (max-width: em($md3)) {
+			display: flex;
+			gap: rem(10);
+			justify-content: space-between;
+			&::before {
+				content: attr(data-label);
+				font-weight: bold;
+			}
+		}
+	}
+}
+
+/**
+ * Reflects vertically
+ */
+._mirror-v {
+	transform: scale(1, -1);
+}
+
+/**
+ * Reflects horizontally
+ */
+._mirror-h {
+	transform: scale(-1, 1);
+}
+
+/**
+ * Sets the background block with the boot animation
+ */
+._loading {
+	position: relative;
+	&::after {
+		content: '';
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+		background: rgba(255, 255, 255, 0.7);
+		background-image: url("../img/loading.gif");
+		background-position: center;
+		background-repeat: no-repeat;
+		z-index: 10;
+		border-radius: rem(15);
+		opacity: 0;
+		visibility: hidden;
+		transition: all 0.3s ease 0s;
+	}
+	&._sending {
+		&::after {
+			opacity: 1;
+			visibility: visible;
+		}
+	}
+}
+
+/**
+ * Hides the block, but leaves visible to semantics
+ */
+._semantic-hidden {
+	position: absolute;
+	height: 0;
+	width: 0;
+	font-size: 0;
+	opacity: 0;
+	visibility: hidden;
+}
+
+/**
+ * Hides the block
+ */
+._hide {
+	display: none;
+}
+
+
+/**
+ * Blur border
+ */
+._blur-border {
+	position: relative;
+	&::before,
+	&::after {
+		content: '';
+		display: inline-block;
+		position: absolute;
+		top: 50%;
+		left: 50%;
+		translate: -50% -50%;
+		filter: blur(rem(5));
+		border-radius: rem(33);
+	}
+	&::before {
+		width: 100%;
+		height: 100%;
+		background: linear-gradient(135deg, #82D7FB 0%, #FF65E5 100%);
+		z-index: -2;
+	}
+	&::after {
+		width: calc(100% - rem(4));
+		height: calc(100% - rem(4));
+		background: #fff;
+		z-index: -1;
+	}
+	@media (max-width: em($md3)) {
+		&::before,
+		&::after {
+			border-radius: rem(15);
+			filter: blur(rem(3));
+		}
+		&::after {
+			width: calc(100% - rem(2));
+			height: calc(100% - rem(2));
+		}
+	}
+}
