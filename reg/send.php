@@ -5,7 +5,6 @@ define("INVALID_AUTH_ERROR_CODE", "invalid_auth");
 define("INVALID_PARAMS_ERROR_CODE", "invalid_params");
 define("LEAD_DECLINED_ERROR_CODE", "lead_declined");
 
-
 $log_entry = array();
 
 function generate_password($length = 7)
@@ -150,11 +149,12 @@ $apiData = [
     'aff_sub' => $_POST['subid'] ?? 'empty',
     'aff_sub2' => '',
     'aff_sub3' => $_POST['offer_name'] ?? 'No name',
-'aff_sub4' => $_POST['id'],
-		'aff_sub5' => $_GET['test'] ? 'test' : '',
+    'aff_sub4' => $_POST['id'] ?? 'empty',
+    'aff_sub5' => isset($_GET['test']) ? $_GET['test'] : '',
     'aff_sub11' => 'seo',
     'aff_sub14' => $_POST['language'] ?? 'empty'
 ];
+
 
 $headers = [
 'Authorization: ' . $authToken,
@@ -186,42 +186,30 @@ $payload = array(
     "http_code" => $http_code,
 );
 
+$decodedResponse = json_decode($response, true); // decode as array
+
 switch ($http_code) {
-    /**
-     * BAD TOKEN / AUTH / AFF IP WHITELISTING CASE
-     * Showing Invalid Auth sentence
-     */
     case 401:
         $payload["success"] = false;
         $payload["code"] = INVALID_AUTH_ERROR_CODE;
         break;
-        /**
-         * Validation Errors ( wrong input )
-         * Means that emails / phones / ip declined by validation
-         */
     case 400:
         $payload["success"] = false;
         $payload["code"] = INVALID_PARAMS_ERROR_CODE;
-        if (isset($response->validation_errors)) {
-            $payload["errors"] = $response->validation_errors;
-        } elseif (isset($response->message)) {
-            $payload["errors"] = $response->message;
+
+        if (isset($decodedResponse['validation_errors'])) {
+            $payload["errors"] = $decodedResponse['validation_errors'];
+        } elseif (isset($decodedResponse['message'])) {
+            $payload["errors"] = $decodedResponse['message'];
         }
         break;
-        /**
-         * Pushed
-         * Simple redirect for an example
-         */
     case 200:
     case 201:
         $payload["success"] = true;
-        $payload["auto_login_url"] = json_decode($response)->auto_login_url;
-        $url = $payload["auto_login_url"];
-        break;
-        /**
-         * Declined
-         * Showing Decline message
-         */
+        $decodedResponse = json_decode($response, true);
+        if (!empty($decodedResponse['auto_login_url'])) {
+            $payload["auto_login_url"] = $decodedResponse['auto_login_url'];
+        }
     case 500:
         break;
 }

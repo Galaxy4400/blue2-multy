@@ -7,8 +7,8 @@
 <script src="<?=$dir_prefix?>assets/js/menu.js"></script>
 <script src="<?=$dir_prefix?>assets/js/spoiler.js"></script>
 
-<script src="<?=$dir_prefix?>assets/js/localization.js"></script>
 <script src="<?=$dir_prefix?>assets/js/cookies.js"></script>
+<script src="<?=$dir_prefix?>assets/js/localization.js"></script>
 <script src="<?=$dir_prefix?>assets/js/functions.js"></script>
 <script src="<?=$dir_prefix?>assets/js/forms.js"></script>
 <script src="<?=$dir_prefix?>assets/js/sliders.js"></script>

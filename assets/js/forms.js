@@ -209,7 +209,7 @@ function initCountryPhones(form) {
 		strictMode: true,
 		separateDialCode: true,
 		initialCountry: COUNTRY,
-		utilsScript: "/js/intlTelInput-utils.min.js",
+		utilsScript: `${DP}assets/js/intlTelInput-utils.min.js`,
 	});
 
 	fetchUserCountry()
